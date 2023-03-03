@@ -1,0 +1,43 @@
+﻿@model IEnumerable<FacultyAdministrationProjectData.entities.Professor>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Index</h2>
+
+<a class="btn btn-primary" href="/Professor/Create">Add New Professor</a>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NameSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lecture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NameSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lecture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+       
+        <td><a class="btn btn-primary" href="/Professor/Edit/@item.Id">Guncelle</a></td>
+        <td><a class="btn btn-primary" href="/Professor/Delete/@item.Id">Sil</a></td>
+       
+    </tr>
+}
+
+</table>
